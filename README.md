@@ -71,7 +71,8 @@ print(f"Rainbow Test: stat={stat}, p-value={p_value}")
 ```
 Our p-value ended up being p-value=0.9999999999999999. Interestingly, the p-value seems to be greater than .05, meaning that there is a linear relationship.
 
-Please check my notebook for graphs.
+Graphing the linear regression.
+![](https://github.com/jas-tang/datasci_6_regression/blob/main/images/1.JPG)
 
 We then assessed the normality of the residuals. 
 ```
@@ -80,6 +81,9 @@ W, p_value = shapiro(residuals)
 print(f"Shapiro-Wilk Test: W={W}, p-value={p_value}")
 ```
 The p-value was p-value=0.0, meaning there is not a normal distribution of residuals.
+
+Plotting the residuals
+![](https://github.com/jas-tang/datasci_6_regression/blob/main/images/2.JPG)
 
 Then we assessed the homegeneity of variance of the residuals. 
 ```
@@ -153,6 +157,8 @@ Notes:
 ```
 Our adjusted R-squared is .03, or 3%. This means that our independent variables has little predictability for our dependent variable.
 
+![](https://github.com/jas-tang/datasci_6_regression/blob/main/images/3.JPG)
+
 Based off the p- values, mit, erl, pox, and nuc are all not significant while vac is. We can theoretically drop the not significant values for a backwards regression.
 
 ```
@@ -216,6 +222,8 @@ print(f"Shapiro-Wilk Test: W={W}, p-value={p_value}")
 Shapiro-Wilk Test: W=0.973564624786377, p-value=7.147997221826753e-16
 There is a normal distribution of residuals because p-value is less than .05.
 
+![](https://github.com/jas-tang/datasci_6_regression/blob/main/images/4.JPG)
+
 ```
 ##### Assessing the homogeneity of variance of the residuals
 gq_test = het_goldfeldquandt(residuals, results.model.exog)
@@ -224,6 +232,9 @@ print(f"Goldfeld-Quandt Test: F-statistic={gq_test[0]}, p-value={gq_test[1]}")
 Goldfeld-Quandt Test: F-statistic=1.1340584877887678, p-value=0.044066389293097995
 
 This P-value is lower than .05, meaning that the homogeneity of variance has not been met.
+
+We plot the residuals vs fitted values.
+![](https://github.com/jas-tang/datasci_6_regression/blob/main/images/5.JPG)
 
 Now we have to check the multicolinearity using VIF. 
 ```
